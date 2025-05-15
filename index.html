@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vida Real - Sobrevivência</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div id="startScreen" class="tela-inicial">
+    <h1><i class="fa-solid fa-tree-city"></i> Vida Real - Sobrevivência</h1>
+    <button class="btn-principal" onclick="startGame()">Iniciar Jogo</button>
+  </div>
+
+  <div id="gameUI" style="display: none;">
+    <header class="hud-superior">
+      <div id="clock">01/01/2025 - 06:00</div>
+      <div id="bancoInfo"><i class="fa-solid fa-piggy-bank"></i> R$ 0,00</div>
+    </header>
+
+    <main class="interface-principal">
+      <section class="painel-esquerdo">
+        <h2><i class="fa-solid fa-heart-pulse"></i> Status</h2>
+        <ul class="status-lista">
+          <li>Fome: <span id="fome">100</span>%</li>
+          <li>Energia: <span id="energia">100</span>%</li>
+          <li>Higiene: <span id="higiene">100</span>%</li>
+          <li>Saúde Mental: <span id="mental">100</span>%</li>
+          <li>Sede: <span id="sede">100</span>%</li>
+        </ul>
+        <div id="expTrabalhos">
+          <h3><i class="fa-solid fa-chart-line"></i> Experiência</h3>
+          <ul id="listaExpTrabalhos" class="exp-lista"></ul>
+        </div>
+      </section>
+
+      <section class="painel-central">
+        <p>Bem-vindo à sua nova vida!</p>
+        <button id="btnEmpregos" class="btn-acao" onclick="mostrarEmpregos()">
+          <i class="fa-solid fa-briefcase"></i> Ver Empregos
+        </button>
+
+        <div id="menuEmpregos" class="painel" style="display: none;">
+          <h2><i class="fa-solid fa-briefcase"></i> Empregos Disponíveis</h2>
+          <div id="listaEmpregos"></div>
+          <button class="btn-secundario" onclick="fecharEmpregos()">Fechar</button>
+        </div>
+
+        <div id="casa" class="painel" style="display: none;">
+          <h2><i class="fa-solid fa-house"></i> Casa (R$700/mês)</h2>
+          <button id="btnDormir" class="btn-acao">Dormir</button>
+          <button id="btnBanho" class="btn-acao">Tomar Banho</button>
+          <button id="btnSair" class="btn-secundario">Sair</button>
+
+          <div id="geladeira" class="subpainel">
+            <h3><i class="fa-solid fa-snowflake"></i> Geladeira</h3>
+            <div id="itensGeladeira"></div>
+          </div>
+        </div>
+
+        <div id="mercado" class="painel" style="display: none;">
+          <h2><i class="fa-solid fa-store"></i> Mercado</h2>
+          <label for="quantAgua">Água (R$10):</label>
+          <input type="number" id="quantAgua" min="0" value="0">
+          <label for="quantSanduiche">Sanduíche (R$20):</label>
+          <input type="number" id="quantSanduiche" min="0" value="0">
+          <div id="totalCompra">Total: R$ 0</div>
+          <button id="btnComprar" class="btn-acao">Comprar</button>
+          <button class="btn-secundario" onclick="sairDoMercado()">Fechar</button>
+        </div>
+      </section>
+
+      <section class="painel-direito">
+        <h2><i class="fa-solid fa-map"></i> Mapa</h2>
+        <div id="mapa" class="mapa-realista">
+  <img src="img/cidade-mapa.png" alt="Mapa da Cidade" class="fundo-mapa" />
+
+  <div class="area-mapa casa" onclick="irPara('casa')" title="Casa">
+    <i class="fa-solid fa-house"></i>
+  </div>
+
+  <div class="area-mapa mercado" onclick="irPara('mercado')" title="Mercado">
+    <i class="fa-solid fa-store"></i>
+  </div>
+
+  <div class="area-mapa trabalho" onclick="irPara('trabalho')" title="Trabalho">
+    <i class="fa-solid fa-briefcase"></i>
+  </div>
+
+  <div class="area-mapa banco" onclick="irPara('banco')" title="Banco">
+    <i class="fa-solid fa-piggy-bank"></i>
+  </div>
+</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="casa.js" defer></script>
+  <script src="geladeira.js" defer></script>
+  <script src="mapa.js" defer></script>
+  <script src="trabalhos.js" defer></script>
+  <script src="mercado.js" defer></script>
+  <script src="banco.js" defer></script>
+</body>
+</html>
